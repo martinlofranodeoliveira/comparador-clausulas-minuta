@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src 'self'; connect-src 'none'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Comparador de Cláusulas de Minuta</title>
+<link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#editor">Ir para a ferramenta</a>
+<main>
+  <header><p class="brand"><span></span> LOFRANO <small>Laboratório de software</small></p>
+    <div class="hero"><p class="sector">Gestão documental</p><h1>Comparador de Cláusulas de Minuta</h1><p>Compare versões de uma minuta fictícia por identificador e localize o trecho textual que mudou.</p></div>
+  </header>
+  <div class="workspace">
+    <section class="panel">
+      <h2>Dados de entrada</h2>
+      <p class="help" id="instructions">before e after são listas de {id,text}. Use onlyDifferences para ocultar linhas iguais.</p>
+      
+      <label for="editor">Dados em JSON</label>
+      <textarea id="editor" spellcheck="false" rows="15" aria-describedby="instructions">{
+  &quot;after&quot;: [
+    {
+      &quot;id&quot;: &quot;1&quot;,
+      &quot;text&quot;: &quot;O prazo é de 15 dias úteis.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;2&quot;,
+      &quot;text&quot;: &quot;Anexo de referência.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;3&quot;,
+      &quot;text&quot;: &quot;Recebimento interno.&quot;
+    }
+  ],
+  &quot;before&quot;: [
+    {
+      &quot;id&quot;: &quot;1&quot;,
+      &quot;text&quot;: &quot;O prazo é de 10 dias úteis.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;2&quot;,
+      &quot;text&quot;: &quot;Anexo de referência.&quot;
+    }
+  ]
+}</textarea>
+      <div class="buttons"><button type="button" id="run">Conferir dados</button><button type="button" id="reset" class="quiet">Restaurar exemplo</button></div>
+    </section>
+    <section class="panel output" aria-labelledby="output-title">
+      <div class="top"><h2 id="output-title">Resultado</h2><button type="button" id="download" class="quiet" disabled>Exportar JSON</button></div>
+      <p role="status" id="status">Execute a ferramenta para conferir os dados.</p>
+      <dl id="stats"></dl><div id="result"></div>
+    </section>
+  </div>
+  <footer>Exemplo fictício. O processamento acontece neste navegador. Conferências técnicas apoiam o trabalho da equipe responsável.</footer>
+</main>
+</body>
+</html>
