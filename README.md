@@ -6,7 +6,7 @@ Compare versões de uma minuta fictícia por identificador e localize o trecho t
 
 Abra a [demonstração](https://martinlofranodeoliveira.github.io/comparador-clausulas-minuta/). Para uso local, execute `python3 -m http.server 8000` no diretório e abra `http://localhost:8000`.
 
-before e after são listas de {id,text}. Use onlyDifferences para ocultar linhas iguais.
+Insira as cláusulas nas duas versões e use o mesmo identificador nos trechos que correspondem. Se quiser, marque **Mostrar somente diferenças**. Clique em **Comparar versões** e confira os trechos incluídos ou removidos. O relatório está disponível em CSV.
 
 ## Contrato público
 
